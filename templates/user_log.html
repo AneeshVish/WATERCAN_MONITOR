@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Can Usage Log</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .log-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+        .log-table th, .log-table td {
+            padding: 0.7rem 0.5rem;
+            border-bottom: 1px solid #e0e5ec;
+            text-align: center;
+            font-size: 0.99rem;
+        }
+        .log-table th {
+            background: rgba(33,147,176,0.13);
+            color: #2193b0;
+            font-weight: 700;
+        }
+        .log-table tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Usage Update Log</h1>
+        <div id="verifyStatus" class="verify-badge">Verifying...</div>
+        <div class="card log-card">
+            <input type="text" id="filterInput" placeholder="Enter Water Can ID to filter" class="log-filter">
+            <table class="log-table" id="logTable">
+                <thead>
+                    <tr>
+                        <th>Date &amp; Time</th>
+                        <th>Water Can ID</th>
+                        <th>Old Count</th>
+                        <th>New Count</th>
+                        <th>Updated By</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Log rows will be inserted here -->
+                </tbody>
+            </table>
+            <div id="logEmpty" class="bad log-empty">No updates yet.</div>
+        </div>
+        <a href="/" class="admin-link">Back to Usage Checker</a>
+    </div>
+    <script>
+        let allLogs = [];
+        fetch('/api/verify_blockchain')
+            .then(res => res.json())
+            .then(data => {
+                const badge = document.getElementById('verifyStatus');
+                if(data.verified) {
+                    badge.textContent = 'Blockchain Verified';
+                    badge.className = 'verify-badge verified';
+                } else {
+                    badge.textContent = 'Tampered! Log Integrity Broken';
+                    badge.className = 'verify-badge tampered';
+                }
+            });
+        fetch('/api/get_logs')
+            .then(res => res.json())
+            .then(logs => {
+                allLogs = logs.reverse();
+                renderLogs();
+            });
+        function formatDateTime(isoStr) {
+            const date = new Date(isoStr);
+            const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true };
+            return date.toLocaleString(undefined, options);
+        }
+        function renderLogs() {
+            const tbody = document.querySelector('#logTable tbody');
+            const logEmpty = document.getElementById('logEmpty');
+            const filterVal = document.getElementById('filterInput')?.value.trim();
+            tbody.innerHTML = '';
+            let filtered = allLogs;
+            if (filterVal) {
+                filtered = allLogs.filter(log => log.can_id.toLowerCase() === filterVal.toLowerCase());
+            }
+            if (!filtered.length) {
+                logEmpty.style.display = 'block';
+                document.getElementById('logTable').style.display = 'none';
+                return;
+            }
+            logEmpty.style.display = 'none';
+            document.getElementById('logTable').style.display = '';
+            filtered.forEach(log => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td>${formatDateTime(log.timestamp)}</td><td>${log.can_id}</td><td>${log.old_count}</td><td>${log.new_count}</td><td>${log.admin}</td>`;
+                tbody.appendChild(tr);
+            });
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterInput = document.getElementById('filterInput');
+            if (filterInput) {
+                filterInput.addEventListener('input', renderLogs);
+            }
+        });
+    </script>
+</body>
+</html>

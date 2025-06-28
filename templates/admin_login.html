@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .login-toggle {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.97rem;
+            color: #555;
+        }
+        .login-toggle input[type="checkbox"] {
+            margin-right: 0.5em;
+        }
+        .login-error {
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Login</h1>
+        <div class="card">
+            <form method="post" autocomplete="off">
+                <input type="text" name="username" placeholder="Username" required autofocus><br>
+                <input type="password" name="password" placeholder="Password" id="passwordInput" required><br>
+                <div class="login-toggle">
+                    <input type="checkbox" id="showPassword" onclick="togglePassword()">
+                    <label for="showPassword">Show Password</label>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            {% if error %}
+                <div class="bad login-error">{{ error }}</div>
+            {% endif %}
+        </div>
+        <a href="/" class="admin-link">Back to User Page</a>
+    </div>
+    <script>
+        function togglePassword() {
+            const pw = document.getElementById('passwordInput');
+            pw.type = pw.type === 'password' ? 'text' : 'password';
+        }
+    </script>
+</body>
+</html>

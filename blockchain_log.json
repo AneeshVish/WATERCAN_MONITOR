@@ -1,0 +1,92 @@
+[
+  {
+    "timestamp": "2025-06-27T14:21:11.740760",
+    "can_id": "A1",
+    "old_count": 10,
+    "new_count": 11,
+    "admin": "admin",
+    "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "hash": "7e5e13bd39b0be72663079c2dbf258add6dddcdc4d64b6bb368f177a1353b85d"
+  },
+  {
+    "timestamp": "2025-06-27T14:22:56.392719",
+    "can_id": "A2",
+    "old_count": 0,
+    "new_count": 1,
+    "admin": "admin",
+    "prev_hash": "7e5e13bd39b0be72663079c2dbf258add6dddcdc4d64b6bb368f177a1353b85d",
+    "hash": "bc5bf5f1668dc10afb5fe4a0e805236e32db4dceb79ea3d639af1d7acb0f5189"
+  },
+  {
+    "timestamp": "2025-06-27T14:27:34.979416",
+    "can_id": "A3",
+    "old_count": 0,
+    "new_count": 5,
+    "admin": "admin",
+    "prev_hash": "bc5bf5f1668dc10afb5fe4a0e805236e32db4dceb79ea3d639af1d7acb0f5189",
+    "hash": "87dcba776f5dd667574443d81a50e2bb726de137d59a8e1fd42112d19b201e15"
+  },
+  {
+    "timestamp": "2025-06-27T14:27:38.143587",
+    "can_id": "A5",
+    "old_count": 0,
+    "new_count": 5,
+    "admin": "admin",
+    "prev_hash": "87dcba776f5dd667574443d81a50e2bb726de137d59a8e1fd42112d19b201e15",
+    "hash": "ccb9c3548ad4078ce7753003ebb8977b0eba78cc89a31f935a3888cd44451339"
+  },
+  {
+    "timestamp": "2025-06-27T14:27:42.381895",
+    "can_id": "A11",
+    "old_count": 0,
+    "new_count": 5,
+    "admin": "admin",
+    "prev_hash": "ccb9c3548ad4078ce7753003ebb8977b0eba78cc89a31f935a3888cd44451339",
+    "hash": "0410777a55283a571613bec443de7da3d3f93d4340e01d4c2ecd5477b945a13b"
+  },
+  {
+    "timestamp": "2025-06-27T14:27:47.929319",
+    "can_id": "A5",
+    "old_count": 5,
+    "new_count": 10,
+    "admin": "admin",
+    "prev_hash": "0410777a55283a571613bec443de7da3d3f93d4340e01d4c2ecd5477b945a13b",
+    "hash": "e7ab30464c02d2c9481c75a6ce0860f64a42d6c9601b90b4abfea0b1f3e00138"
+  },
+  {
+    "timestamp": "2025-06-27T14:27:56.064132",
+    "can_id": "A10",
+    "old_count": 0,
+    "new_count": 42,
+    "admin": "admin",
+    "prev_hash": "e7ab30464c02d2c9481c75a6ce0860f64a42d6c9601b90b4abfea0b1f3e00138",
+    "hash": "ba2d6e1895ec48dba108c46bcc5603f552f941fcc4509150b73463c9ae8e3b5e"
+  },
+  {
+    "timestamp": "2025-06-27T14:28:04.639802",
+    "can_id": "A20",
+    "old_count": 0,
+    "new_count": 55,
+    "admin": "admin",
+    "prev_hash": "ba2d6e1895ec48dba108c46bcc5603f552f941fcc4509150b73463c9ae8e3b5e",
+    "hash": "4220cd11f55d7bcb7d342e8235bb26c3b0d8cb1824e98c450c29f96d63ebcbaa"
+  },
+  {
+    "timestamp": "2025-06-28T12:36:58.837234",
+    "can_id": "A12",
+    "old_count": 0,
+    "new_count": 1,
+    "admin": "admin",
+    "prev_hash": "4220cd11f55d7bcb7d342e8235bb26c3b0d8cb1824e98c450c29f96d63ebcbaa",
+    "hash": "7b14497e6f54a7311478a7f34cc8757d68b5c601f59271443b6ba5566748fbc5"
+  },
+  {
+    "timestamp": "2025-06-28T12:37:33.250764",
+    "can_id": "A12",
+    "old_count": 1,
+    "new_count": 2,
+    "admin": "admin",
+    "prev_hash": "7b14497e6f54a7311478a7f34cc8757d68b5c601f59271443b6ba5566748fbc5",
+    "hash": "ced736c81d23ea614424ccb0c6311f4f6735863493fb331b622232b704ab7076"
+  }
+]
