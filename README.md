@@ -157,7 +157,7 @@ python app.py
 - **Port in use:** If 5000 or 7000 is busy, change the port in `app.py` for each app (`app.run(port=xxxx, debug=True)`).
 - **404 Not Found:** Make sure you use the correct URLs: `/` for user, `/admin/login` for admin.
 - **Permission errors:** Run your terminal as administrator if you have file write issues.
-- **Dependency errors:** Double-check you installed requirements for both apps and `cryptography`.
+- **Dependency errors:** Double-check you installed requirements for all apps and `cryptography`.
 - **Signature verification fails:** Make sure you are using the correct `public_key.pem` that matches the admin who created the log.
 
 ---
