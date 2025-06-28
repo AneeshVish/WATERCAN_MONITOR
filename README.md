@@ -184,9 +184,8 @@ python app.py
 
 ---
 
-## Authors & License
-- Created by [Your Name/Team]
-- MIT License (or specify your license)
+## Authors
+- Created by Aneesh H Vishwamitra
 
 ---
 
